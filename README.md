@@ -26,7 +26,7 @@ N/A
 
   * `requestTime`
   * `logger`
-  * `a` -
+  * `a`
   * `bMiddleware`
   * `b`
   * `notFoundHandler`
