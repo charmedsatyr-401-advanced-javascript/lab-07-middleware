@@ -48,9 +48,11 @@ const logger = (req, res, next) => {
 app.use(requestTime, logger);
 
 // Plain Route A
-app.get('/a', (req, res) => {
+const a = (req, res) => {
   res.status(200).send('Route A');
-});
+}
+
+app.get('/a', a);
 
 // B middleware - currying with number argument
 /**

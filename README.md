@@ -1,78 +1,62 @@
-# LAB: Express
+![CF](http://i.imgur.com/7v5ASc8.png) LAB
+=================================================
 
-**This is a paired Lab**
+## Lab 07 | Middleware
 
-## Before you begin
-Refer to *Getting Started* in [lab-instructions.md](../../../reference/submission-instructions/labs.md) for complete setup instructions
+### Author: Joseph Wolfe
 
-## Getting Started
-In the `starter-code`, there are folders that map to each of the lab assignments. You'll be creating 3 new repositories today, one for each part of the assignment.
+### Links and Resources
+* [PR](https://github.com/charmedsatyr-401-advanced-javascript/lab-07-middleware/pull/1)
+* [![Build Status](https://travis-ci.org/charmedsatyr-401-advanced-javascript/lab-07-middleware.svg?branch=master)](https://travis-ci.org/charmedsatyr-401-advanced-javascript/lab-07-middleware)
 
-## Requirements
+#### Documentation
+N/A
 
-### Middleware, Routing, Modularization Practice
-* Create a repository called `lab-07-middleware` and copy the contents of the `starter-code/middleware` folder into it.
-* Complete the following tasks in the `server.js` file
-  * Write error handling middleware
-  * Write not found middleware and a catch-all route that uses it.
-  * Write middleware that runs on every route that adds a property called `requestTime` with a value of the current Date/Time to the request object.
-  * Write middleware that runs on every route that will run a `console.log()` containing the **method**, **path**, and the new property `requestTime` from the request
-  * Write middleware that runs only on the `/c` route that performs an additional `console.log()` with a randomly generated number
-  * Write middleware that runs on the `/d` route that raises an error using `next`
-  * Write middleware that runs on the and `/b` route that takes a number as a parameter, squares it, and and sets that value on the request object in a property called `number`.
-    * Alter the `/b` route to `.send()` that number from the request object to the browser.
-* Ensure that all of your routes and middleware work as expected
-* Create a router in a separate file called `routes.js`
-  * Move the `/c` and `/d` routes into it
-  * Export it
-  * Import it into the server file and properly `use()` it.
-  
-**Engineering Note** - *Modularity is a tool that not only makes your code more readable and consumable by other developers, it helps you to think about how to break problems down*
+### Modules
 
-### Testing Practice
-* Create a repository called `lab-07-testing` and copy the contents of the `starter-code/testing` folder into it.
-* Complete the following tasks
-  * Write unit tests for the middleware
-    * Mock `request`, `response`, `next`
-    * Make assertions on their use/modifications
-    * Spy on next
-  * Start the server and visually verify your routes
-    * /a should work
-    * /e should error
-    * anything else should 404
-  * Stop the server and complete tests for it using `supertest`
-    * Make note of how things are wired and provide answers to the embedded questions
-    
-**Engineering Note** - *Testing servers without side-effects is crucial. More critical is not having to manage starting/stopping a server in multiple environments.*
+`./server.js`
 
-### API Server
-* Create a repository called `lab-07-api-server` and copy the contents of the `starter-code/api-server` folder into it.
-* Complete the server's CRUD functionality
-  * Implement DELETE
-  * Implement PUT
-* Implement data integrity checking
-  * Create a constructor that all input for new and updated records (POST and PUT) can be run through.
-  * This constructor should return a properly formatted and validated object (type checked, and required fields)
-  * Only with a good object, should a write operation be allowed to occur
-* JSDoc for all methods, routes
-* Provide full swagger documentation
-  * Your Lab-06 Swagger should be suitable as a starting point
-  * Wire up to a route called `/docs/api` using the `swagger-ui-express` npm module
-  * Note that your routes might be different as well as the returned data shape ... update accordingly
+`./routes.js`
 
 
-### Testing
-* Server tests have been partially provided.
-  * Complete the tests to cover all of your routes.
-* Write unit tests for the middleware
-* Write unit tests for the data model.
+##### Exported Values and Methods from `./server.js`
+N/A
 
+`server` includes the following middleware and endpoint methods:
 
-### Stretch Goal:
-* Add support for `products`
-  * New Model
-  * Additional Routes
+  * `requestTime`
+  * `logger`
+  * `a` -
+  * `bMiddleware`
+  * `b`
+  * `notFoundHandler`
+  * `errorHandler`
 
+##### Exported Values and Methods from `./routes.js`
+`router`
 
-## Assignment Submission Instructions
-Refer to the [lab-instructions.md](../../../reference/submission-instructions/labs.md) for the complete lab submission process and expectations
+`router` includes the following middleware and endpoint methods:
+  * `cMiddleware`
+  * `c`
+  * `dMiddleware`
+  * `d`
+
+#### Running the app
+* `npm run start` or
+* `nodemon server.js`
+
+Requests can be manually tested using the `httpie` application.
+
+#### Tests
+* How do you run tests?
+
+N/A
+* What assertions were made?
+
+N/A
+* What assertions need to be / should be made?
+
+N/A
+
+#### UML
+N/A
