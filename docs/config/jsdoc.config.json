@@ -1,0 +1,9 @@
+{
+  "source": {
+    "include": ["./routes.js", "./server.js"]
+  },
+  "opts": {
+    "destination": "./docs",
+    "recurse": true
+  }
+}
